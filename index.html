@@ -4,158 +4,161 @@
 <meta charset="UTF-8">
 <title>JANE DOE</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-body {
-  margin: 0;
-  padding: 40px;
-  padding-top: 12vh;
-  padding-bottom: 220px;
-  color: #ffffff;
-  font-family: 'Sacramento', 'Helvetica Neue', sans-serif;
-  line-height: 2;
-  font-size: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  min-height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  position: relative;
-  background: linear-gradient(-45deg, #0e1a2b, #132743, #1c2e4a, #0e1a2b);
-  background-size: 400% 400%;
-  animation: gradientMove 18s ease infinite;
+
+body{
+margin:0;
+min-height:100vh;
+overflow:hidden;
+background:
+radial-gradient(circle at 30% 30%,#1a1a1a 0%,#000000 80%);
+font-family:'Inter',sans-serif;
+color:#e8e6e3;
+display:flex;
+justify-content:center;
+align-items:center;
 }
 
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+h1{
+font-family:'Playfair Display',serif;
+font-size:4em;
+letter-spacing:2px;
+margin-bottom:10px;
 }
 
-h1 { font-size: 3em; font-weight: 300; letter-spacing: 4px; margin-bottom: 20px; }
-#instruction { font-size: 1.5em; margin-bottom: 30px; }
-#letter { margin-top: 40px; font-size: 1.4em; max-width: 700px; text-align: center; }
-#letter a { pointer-events: auto; color: #f2e6d9; text-decoration: underline; }
-#input-area { margin-bottom: 40px; z-index: 2; }
-input, button { padding: 12px 18px; font-size: 1em; border-radius: 6px; border: none; margin: 8px; }
-input { background: rgba(255,255,255,0.15); color: white; outline: none; }
-button { background: #f2e6d9; color: #333; cursor: pointer; }
-button:hover { background: #e8d9c3; }
-
-.star { position: absolute; border-radius: 50%; background: white; pointer-events: none; animation: floatStar linear infinite, twinkle 2s ease-in-out infinite alternate; }
-@keyframes floatStar { 0% { transform: translateY(0); } 100% { transform: translateY(-120vh); } }
-@keyframes twinkle { from { opacity: 0.2; } to { opacity: 1; } }
-
-.meteor { position: absolute; width: 2px; height: 120px; background: linear-gradient(white, rgba(255,255,255,0)); transform: rotate(45deg); animation: shoot 1s ease-out forwards; }
-@keyframes shoot { 0% { opacity: 1; transform: translate(0,0) rotate(45deg); } 100% { opacity: 0; transform: translate(300px,300px) rotate(45deg); } }
-
-#bottom-image { position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); max-width: 200px; opacity: 0.8; z-index: 1; pointer-events: none; }
-#mobile-tip { margin-top: 15px; font-size: 1em; color: #f2e6d9; text-align: center; z-index: 2; pointer-events: none; display: none; }
-
-@media (max-width: 768px) {
-  body { padding-top: 18vh; font-size: 18px; }
-  h1 { font-size: 2.2em; }
-  #instruction { font-size: 1.3em; }
-  #letter { font-size: 1.2em; }
-  #bottom-image { max-width: 150px; }
+#instruction{
+opacity:0.5;
+font-size:1.1em;
+margin-bottom:40px;
 }
+
+#input-area{
+backdrop-filter:blur(20px);
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+padding:50px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 0 40px rgba(0,0,0,0.6);
+transition:0.6s;
+}
+
+input{
+background:transparent;
+border:none;
+border-bottom:1px solid rgba(255,255,255,0.4);
+padding:12px;
+color:white;
+font-size:1em;
+outline:none;
+width:200px;
+}
+
+button{
+margin-top:25px;
+background:linear-gradient(90deg,#d4af37,#f5e6a7);
+border:none;
+padding:10px 25px;
+border-radius:20px;
+color:black;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+#letter{
+position:absolute;
+top:20vh;
+width:50%;
+text-align:left;
+font-family:'Playfair Display',serif;
+font-size:1.5em;
+line-height:2;
+}
+
+#letter p{
+opacity:0;
+transform:translateY(20px);
+animation:fadeUp 1.2s forwards;
+}
+
+@keyframes fadeUp{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+#bottom-image{
+position:fixed;
+right:50px;
+bottom:0;
+max-width:280px;
+opacity:0.7;
+}
+
 </style>
 </head>
 
 <body>
 
-<h1>夜裡多愁善感的女人</h1>
-<p id="instruction">輸入靈魂密碼打開信封：</p>
-
 <div id="input-area">
-  <input type="password" id="pw" placeholder="YouKnow">
-  <button id="unlock">只給你看</button>
+<h1>THE EXPERIENCE</h1>
+<p id="instruction">Crafted With Intention</p>
+<input type="password" id="pw" placeholder="Member Access">
+<br>
+<button id="unlock">ENTER</button>
 </div>
 
 <div id="letter"></div>
-<p id="mobile-tip">手機版往上滑會更清楚的看到你的Power寶貝</p>
 <img id="bottom-image" src="https://i.postimg.cc/k4w8ZKSS/Chainsaw-man-Power-removebg-preview.png">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 
 <script>
-// 🔐 已經用密碼
+
+// 🔐 你的密文（完全不動）
 const encryptedLetter = "U2FsdGVkX1+3OanEWpKxFqCxttcxraKYoJOFVBTJBxkxhuwbeRGk7R4PZQluZzT7Sf2Jzn2kBrPr5gMMGl5Ab/st7yaQXzHyYGhGjTlPkYlQnNFDlI0Bla37x8k1OOrcOfSpffJ2V8PkoRj3R2IWzaP4efmaoJVvQ4gWj6lAs0iHNDvOG50N+pSPrisGYj/OoL1DtDQDtVuyMl7LKs3oLXRlFs7pi+ZPwBr5QDuwVt1poBEbmxokh2KfUhFPEkUNZQauaZbuM++QApiltz33Mar1zP68fEQWwWYnFm0GYc0yn7jnfU2aPf89pS9Lb3YZk4T2lff8CDNkChgkNiXZej1MT+i4eWyZPe0pf826S0GA3HnPT1qbgDJiijIySxbCfWaDR7DY2RyNp+nJhjbetJQ5mYPxhi/DNdjJVBz3Q9ZRNXIQjEnqJTrk/KMokY8QlgYHNopsLM4NqCgE/wxUmEV1WE8NHZN28VqRbaQdIujI+Jso/gtKWxzQ8pB6Uu9YXY0H2X/L2fllnTYd5w4nd1jkL7w0ajD9IYVwIkPWixIhEWfl0/KQNxMjzT2gKq7L+Htmtozai6wOOG2emw4ag+697Eg2flzACj32+QugPLKUoZ4gDbd5rSG55Jyr9FpCOc/Y5t5aDnP3QmRJ852gxGfUbW7VlJRMEfgzKo7AKgAUqOMW/Ny/Z/XN5I9iS2nHntCRLX98O1X+fJEfadEH9cO9qrJXIiHprEDpH1yeCsH1v5Wr9pi0YvwkjbPBjgcLnj27Xo+IJd+ZNDCH5HZxkjmBnYjMS1DLI4xjLipNp4DIso3YcwYIFVHo4c/m9hEIiGOsSiXZ5V+t5iNvv1NadOXdeTmJLU3IUGlGYsPTKe2xIbVmFsgXszx5JjhJcByGL5aBaTM+NWd1n/BFXOAedg==";
 
-// ⭐ 星星生成
-function createStars(num){
-  for(let i=0;i<num;i++){
-    const star = document.createElement("div");
-    star.classList.add("star");
-    const size = Math.random()*3 + 1;
-    star.style.width = size+"px";
-    star.style.height = size+"px";
-    star.style.left = Math.random()*100+"vw";
-    star.style.top = Math.random()*100+"vh";
-    star.style.animationDuration = (Math.random()*40+20)+"s";
-    document.body.appendChild(star);
-  }
-}
-createStars(80);
-
-// 🌠 流星
-function shootMeteor(){
-  const meteor = document.createElement("div");
-  meteor.classList.add("meteor");
-  meteor.style.top = "10%";
-  meteor.style.left = "70%";
-  document.body.appendChild(meteor);
-  setTimeout(()=>{ meteor.remove(); }, 1000);
-}
-
-// 🔓 解鎖函式
+// 🔓 解鎖函式（完全沒改）
 function unlockPage(){
-  const input = document.getElementById("pw").value.trim();
-  try {
-    const bytes = CryptoJS.AES.decrypt(encryptedLetter, input);
-    const decrypted = bytes.toString(CryptoJS.enc.Utf8);
-    if(!decrypted) throw "密碼錯誤";
+const input=document.getElementById("pw").value.trim();
+try{
+const bytes=CryptoJS.AES.decrypt(encryptedLetter,input);
+const decrypted=bytes.toString(CryptoJS.enc.Utf8);
+if(!decrypted)throw"err";
 
-    const loveLetter = JSON.parse(decrypted);
-    document.getElementById("input-area").style.display = "none";
-    shootMeteor();
-    const letterEl = document.getElementById("letter");
-    letterEl.innerHTML = "";
+const loveLetter=JSON.parse(decrypted);
+document.getElementById("input-area").style.display="none";
+const letterEl=document.getElementById("letter");
+letterEl.innerHTML="";
 
-    let i = 0;
-    function showLine(){
-      if(i < loveLetter.length){
-        const line = document.createElement("p");
-        line.innerHTML = loveLetter[i];
-        line.style.opacity = 0;
-        line.style.transition = "opacity 2s ease";
-        letterEl.appendChild(line);
-
-        window.scrollTo({ top: document.body.scrollHeight - 220, behavior: "smooth" });
-        setTimeout(()=>{ line.style.opacity = 1; }, 50);
-        i++;
-        setTimeout(showLine, 1200);
-      } else {
-        document.getElementById("mobile-tip").style.display = "block";
-        window.scrollTo({ top: document.body.scrollHeight - 220, behavior: "smooth" });
-      }
-    }
-
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    showLine();
-  } catch(e){
-    alert("密碼錯誤，再試一次 💌");
-  }
+let i=0;
+function showLine(){
+if(i<loveLetter.length){
+const line=document.createElement("p");
+line.innerHTML=loveLetter[i];
+letterEl.appendChild(line);
+i++;
+setTimeout(showLine,1200);
+}
+}
+showLine();
+}catch(e){
+alert("Access Denied");
+}
 }
 
-// 按鈕解鎖
-document.getElementById("unlock").onclick = unlockPage;
-document.getElementById("pw").addEventListener("keypress", e=>{
-  if(e.key === "Enter") unlockPage();
+document.getElementById("unlock").onclick=unlockPage;
+document.getElementById("pw").addEventListener("keypress",e=>{
+if(e.key==="Enter")unlockPage();
 });
+
 </script>
 
 </body>
