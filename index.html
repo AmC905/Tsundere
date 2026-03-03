@@ -157,7 +157,7 @@ filter:blur(0);
 
 <div id="input-area">
 <h1>CONFIDENTIAL</h1>
-<input type="password" id="pw" placeholder="Enter Password">
+<input type="password" id="pw" placeholder="Enter Password" onkeydown="if(event.key==='Enter'){unlockPage()}">
 <br>
 <button onclick="unlockPage()">ENTER</button>
 </div>
