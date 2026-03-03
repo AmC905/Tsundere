@@ -171,6 +171,9 @@ const encryptedLetter = "U2FsdGVkX1+3OanEWpKxFqCxttcxraKYoJOFVBTJBxkxhuwbeRGk7R4
 
 function unlockPage(){
 
+if(isUnlocked) return;
+isUnlocked = true;
+
 const input = document.getElementById("pw").value.trim();
 
 try{
